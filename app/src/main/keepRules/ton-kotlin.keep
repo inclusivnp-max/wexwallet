@@ -1,0 +1,2 @@
+# SLF4J optional binding — Ktor uses SLF4J but Android uses Logcat
+-dontwarn org.slf4j.impl.StaticLoggerBinder

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Данные кошелька не покидают устройство ни при облачном бэкапе,
+  ни при переносе на новое устройство. Восстановление возможно только
+  из seed-фразы, которую пользователь сохранил сам.
+
+  Это работает вместе с android:allowBackup="false": первый атрибут
+  закрывает механизм резервного копирования, эти правила — сценарий
+  прямого переноса устройство-в-устройство на Android 12+.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="file" />
+        <exclude domain="external" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="file" />
+        <exclude domain="external" />
+    </device-transfer>
+</data-extraction-rules>

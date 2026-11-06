@@ -1,0 +1,33 @@
+# Конфигурация gitleaks: базовые правила плюс специфика кошелька.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "bip39-mnemonic"
+description = "Похоже на seed-фразу BIP39 (12 или 24 слова подряд)"
+regex = '''(?i)\b(?:[a-z]{3,8}\s+){11}[a-z]{3,8}\b'''
+tags = ["wallet", "seed"]
+path = '''\.(kt|kts|java|xml|properties|md|json|txt)$'''
+
+[[rules]]
+id = "evm-private-key"
+description = "Похоже на приватный ключ EVM (32 байта hex)"
+regex = '''(?i)\b(?:0x)?[a-f0-9]{64}\b'''
+tags = ["wallet", "key"]
+path = '''\.(kt|kts|java|xml|properties|json)$'''
+
+[allowlist]
+description = "Заведомо безопасные места"
+paths = [
+  '''gradle/wrapper/gradle-wrapper\.properties''',
+  '''gradle/gradle-daemon-jvm\.properties''',
+  '''LICENSE''',
+  '''\.gitleaks\.toml''',
+  # Официальные тестовые векторы стандартов: публичные по определению,
+  # без них невозможно проверить корректность криптографии.
+  '''.*/src/test/.*/vectors/.*''',
+]
+regexes = [
+  # Пример seed-фразы из спецификации BIP39, используется в документации.
+  '''abandon abandon abandon''',
+]

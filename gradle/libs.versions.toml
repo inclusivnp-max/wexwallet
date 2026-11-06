@@ -1,0 +1,131 @@
+# Единый каталог версий. Правило проекта: версии задаются только здесь,
+# в build.gradle.kts модулей допустимы лишь ссылки libs.*
+[versions]
+# --- Сборка ---------------------------------------------------------------
+agp = "9.3.2"
+# Kotlin поставляется самим AGP 9 (built-in Kotlin). Значение обязано совпадать
+# с версией KGP, которую тянет AGP, иначе ломается KSP.
+kotlin = "2.2.10"
+ksp = "2.2.10-2.0.2"
+javaTarget = "17"
+minSdk = "26"
+targetSdk = "37"
+compileSdk = "37"
+
+# --- AndroidX / Compose ---------------------------------------------------
+coreKtx = "1.19.0"
+activityCompose = "1.13.0"
+composeBom = "2026.08.00"
+lifecycle = "2.11.0"
+navigationCompose = "2.10.0"
+splashscreen = "1.2.0"
+annotation = "1.10.0"
+
+# --- DI, данные, сеть -----------------------------------------------------
+hilt = "2.60.1"
+hiltNavigationCompose = "1.4.0"
+room = "2.8.4"
+datastore = "1.2.1"
+ktor = "2.3.7"
+coroutines = "1.11.0"
+serialization = "1.11.0"
+
+# --- Криптография (используется начиная с этапа 1) ------------------------
+# Причины выбора см. SECURITY.md и docs/adr/0001-crypto-stack.md
+secp256k1 = "0.24.0"
+bitcoinKmp = "0.31.0"
+sol4k = "0.8.2"
+tonKotlin = "0.4.3"
+argon2kt = "1.6.0"
+bouncycastle = "1.85.2"
+biometric = "1.1.0"
+
+# --- Качество и тесты -----------------------------------------------------
+detekt = "1.23.8"
+junit4 = "4.13.2"
+androidxTestJunit = "1.3.0"
+androidxTestRunner = "1.7.0"
+espresso = "3.7.0"
+web3jCrypto = "6.0.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+ktor-client-mock = { group = "io.ktor", name = "ktor-client-mock", version.ref = "ktor" }
+
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+
+# Криптография
+secp256k1-android = { group = "fr.acinq.secp256k1", name = "secp256k1-kmp-jni-android", version.ref = "secp256k1" }
+secp256k1-jvm = { group = "fr.acinq.secp256k1", name = "secp256k1-kmp-jni-jvm", version.ref = "secp256k1" }
+bitcoin-kmp = { group = "fr.acinq.bitcoin", name = "bitcoin-kmp", version.ref = "bitcoinKmp" }
+sol4k = { group = "org.sol4k", name = "sol4k", version.ref = "sol4k" }
+ton-kotlin-contract = { group = "org.ton", name = "ton-kotlin-contract", version.ref = "tonKotlin" }
+argon2kt = { group = "com.lambdapioneer.argon2kt", name = "argon2kt", version.ref = "argon2kt" }
+bouncycastle = { group = "org.bouncycastle", name = "bcprov-jdk18on", version.ref = "bouncycastle" }
+androidx-biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
+
+# Тесты
+junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
+androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestJunit" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+# Только для перекрёстной проверки наших EVM-подписей в unit-тестах.
+# В рантайм приложения не попадает — см. docs/adr/0001-crypto-stack.md
+web3j-crypto = { group = "org.web3j", name = "crypto", version.ref = "web3jCrypto" }
+
+# Артефакты для build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+
+# Конвенции проекта (реализация в build-logic/)
+wex-android-application = { id = "wex.android.application" }
+wex-android-library = { id = "wex.android.library" }
+wex-android-compose = { id = "wex.android.compose" }
+wex-android-feature = { id = "wex.android.feature" }
+wex-secrets = { id = "wex.secrets" }

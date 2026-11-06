@@ -1,0 +1,15 @@
+# Правила R8 для релизной сборки. AGP 9 объединяет все файлы из src/main/keepRules.
+
+# Отладочные логи не должны доезжать до релиза: они могут содержать адреса,
+# суммы и внутреннее состояние. Вызовы вырезаются целиком вместе с аргументами.
+-assumenosideeffects class wex.wallet.core.common.WexLog {
+    public void debug(java.lang.String, java.lang.String);
+}
+-assumenosideeffects class android.util.Log {
+    public static int v(...);
+    public static int d(...);
+}
+
+# Сообщения об ошибках должны оставаться читаемыми в отчётах о сбоях.
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile

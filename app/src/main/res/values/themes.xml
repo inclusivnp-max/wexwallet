@@ -1,0 +1,13 @@
+<resources>
+    <!--
+      Тема нужна только на время холодного старта, до первого кадра Compose.
+      Родитель взят из платформы, чтобы не тянуть Views-библиотеку Material
+      в приложение, у которого весь интерфейс на Compose.
+    -->
+    <style name="Theme.WexWallet" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

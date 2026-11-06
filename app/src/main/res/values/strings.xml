@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Wex Wallet</string>
+    <string name="foundation_stage">Этап 0: фундамент проекта</string>
+    <string name="config_title">Конфигурация сборки</string>
+    <string name="config_all_set">Заданы все ключи: %1$d из %1$d</string>
+    <string name="config_missing">Не задано ключей: %1$d из %2$d. Приложение работает без них — функции, которым нужен ключ, отключаются с понятным сообщением.</string>
+    <string name="config_missing_hint">Как задать ключи: см. secrets.properties.example в корне репозитория</string>
+</resources>

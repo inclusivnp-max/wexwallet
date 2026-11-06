@@ -1,0 +1,48 @@
+# Дополнения к настройкам detekt по умолчанию (buildUponDefaultConfig = true).
+# Здесь только то, что специфично для этого проекта.
+
+build:
+  maxIssues: 0
+
+complexity:
+  LongParameterList:
+    functionThreshold: 8
+    constructorThreshold: 10
+    ignoreAnnotated: ['Composable']
+  TooManyFunctions:
+    ignoreAnnotatedFunctions: ['Composable']
+
+style:
+  UnusedPrivateMember:
+    # @Preview-функции вызывает не код, а превью Android Studio.
+    ignoreAnnotated: ['Preview', 'PreviewLightDark']
+  MaxLineLength:
+    maxLineLength: 120
+  ForbiddenComment:
+    active: true
+    comments:
+      - reason: 'Незакрытый TODO без ссылки на задачу теряется. Оформите ссылку или уберите.'
+        value: 'TODO:'
+  MagicNumber:
+    ignoreAnnotated: ['Composable']
+    ignorePropertyDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+  ForbiddenMethodCall:
+    active: true
+    methods:
+      - reason: 'Вывод в stdout не попадает в логи и может утечь в отладочный вывод.'
+        value: 'kotlin.io.println'
+      - reason: 'Вывод в stdout не попадает в логи и может утечь в отладочный вывод.'
+        value: 'kotlin.io.print'
+
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ['Composable']
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][_A-Za-z0-9]*'
+
+formatting:
+  MaximumLineLength:
+    maxLineLength: 120
+  FunctionNaming:
+    active: false

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Совпадает с background светлой темы Compose, чтобы старт был без вспышки. -->
+    <color name="window_background">#FCFCFF</color>
+</resources>
