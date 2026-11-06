@@ -34,7 +34,7 @@ serialization = "1.11.0"
 # Причины выбора см. SECURITY.md и docs/adr/0001-crypto-stack.md
 secp256k1 = "0.24.0"
 bitcoinKmp = "0.31.0"
-sol4k = "0.8.2"
+sol4k = "0.9.0"
 tonKotlin = "0.4.3"
 argon2kt = "1.6.0"
 bouncycastle = "1.85.2"
