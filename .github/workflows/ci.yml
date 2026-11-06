@@ -27,7 +27,7 @@ jobs:
           java-version: '21'
 
       - name: Настроить Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       # Ключевая проверка открытого репозитория: секреты не подставляются
       # намеренно. Если сборка без них сломается, значит сломано обещание
