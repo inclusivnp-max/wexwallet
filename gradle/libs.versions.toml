@@ -28,7 +28,7 @@ room = "2.8.4"
 datastore = "1.2.1"
 ktor = "2.3.7"
 coroutines = "1.11.0"
-serialization = "1.11.0"
+serialization = "1.12.0"
 
 # --- Криптография (используется начиная с этапа 1) ------------------------
 # Причины выбора см. SECURITY.md и docs/adr/0001-crypto-stack.md
